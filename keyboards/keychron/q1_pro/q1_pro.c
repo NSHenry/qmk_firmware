@@ -82,6 +82,14 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
                 unregister_code(mac_keycode[keycode - KC_LOPTN]);
             }
             return false; // Skip all further processing of this key)
+        case KC_MCTRL:
+            /* Mission Control */
+            host_consumer_send(record->event.pressed ? 0x29F : 0);
+            return false; // Skip all further processing of this key
+        case KC_LNPAD:
+            /* Launchpad */
+            host_consumer_send(record->event.pressed ? 0x2A0 : 0);
+            return false; // Skip all further processing of this key
         case KC_TASK:
         case KC_FILE:
         case KC_SNAP:
@@ -102,7 +110,7 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
             }
             return false; // Skip all further processing of this key
 #ifdef KC_BLUETOOTH_ENABLE
-        case BT_HST1 ... BT_HST3:
+        case BT_HST1 ... BT_HST6:
             if (get_transport() == TRANSPORT_BLUETOOTH) {
                 if (record->event.pressed) {
                     host_idx = keycode - BT_HST1 + 1;

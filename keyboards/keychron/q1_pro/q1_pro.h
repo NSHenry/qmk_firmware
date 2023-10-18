@@ -35,6 +35,8 @@ enum {
     KC_ROPTN,
     KC_LCMMD,
     KC_RCMMD,
+    KC_MCTRL,
+    KC_LNPAD,
     KC_TASK,
     KC_FILE,
     KC_SNAP,
@@ -44,11 +46,17 @@ enum {
     BT_HST1,
     BT_HST2,
     BT_HST3,
+    BT_HST4,
+    BT_HST5,
+    BT_HST6,
     BAT_LVL,
 #else
     BT_HST1 = KC_TRNS,
     BT_HST2 = KC_TRNS,
     BT_HST3 = KC_TRNS,
+    BT_HST4 = KC_TRNS,
+    BT_HST5 = KC_TRNS,
+    BT_HST6 = KC_TRNS,
     BAT_LVL = KC_TRNS,
 #endif
 	NEW_SAFE_RANGE
